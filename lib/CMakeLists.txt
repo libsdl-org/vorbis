@@ -137,7 +137,7 @@ if (NOT BUILD_FRAMEWORK)
         set_property(TARGET vorbisenc PROPERTY DLL_NAME_WITH_SOVERSION FALSE)
 
         # FIXME: keep soversion in sync with autotools
-        set_property(TARGET vorbisfile PROPERTY RUNTIME_OUTPUT_NAME "vorbisenc-3")
+        set_property(TARGET vorbisfile PROPERTY RUNTIME_OUTPUT_NAME "vorbisfile-3")
         # Requires CMake 3.27, so not sufficient
         set_property(TARGET vorbisfile PROPERTY DLL_NAME_WITH_SOVERSION FALSE)
     endif()
