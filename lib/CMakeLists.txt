@@ -125,6 +125,22 @@ if (NOT BUILD_FRAMEWORK)
         ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
         FRAMEWORK DESTINATION ${CMAKE_INSTALL_LIBDIR}
     )
+    if(WIN32 AND BUILD_SHARED_LIBS)
+        # FIXME: keep soversion in sync with autotools
+        set_property(TARGET vorbis PROPERTY RUNTIME_OUTPUT_NAME "vorbis-0")
+        # Requires CMake 3.27, so not sufficient
+        set_property(TARGET vorbis PROPERTY DLL_NAME_WITH_SOVERSION FALSE)
+
+        # FIXME: keep soversion in sync with autotools
+        set_property(TARGET vorbisenc PROPERTY RUNTIME_OUTPUT_NAME "vorbisenc-2")
+        # Requires CMake 3.27, so not sufficient
+        set_property(TARGET vorbisenc PROPERTY DLL_NAME_WITH_SOVERSION FALSE)
+
+        # FIXME: keep soversion in sync with autotools
+        set_property(TARGET vorbisfile PROPERTY RUNTIME_OUTPUT_NAME "vorbisenc-3")
+        # Requires CMake 3.27, so not sufficient
+        set_property(TARGET vorbisfile PROPERTY DLL_NAME_WITH_SOVERSION FALSE)
+    endif()
     export(EXPORT VorbisTargets NAMESPACE Vorbis:: FILE VorbisTargets.cmake)
 
     if(INSTALL_CMAKE_PACKAGE_MODULE)
