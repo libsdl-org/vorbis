@@ -141,7 +141,7 @@ if (NOT BUILD_FRAMEWORK)
         # Requires CMake 3.27, so not sufficient
         set_property(TARGET vorbisfile PROPERTY DLL_NAME_WITH_SOVERSION FALSE)
     endif()
-    export(EXPORT VorbisTargets NAMESPACE Vorbis:: FILE VorbisTargets.cmake)
+#    export(EXPORT VorbisTargets NAMESPACE Vorbis:: FILE VorbisTargets.cmake)
 
     if(INSTALL_CMAKE_PACKAGE_MODULE)
 
