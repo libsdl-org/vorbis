@@ -73,6 +73,12 @@ if(MSVC)
     add_definitions(-D_CRT_NONSTDC_NO_DEPRECATE)
 endif()
 
+include(CheckIncludeFile)
+check_include_file(alloca.h HAVE_ALLOCA_H)
+if(HAVE_ALLOCA_H)
+    add_definitions(-DHAVE_ALLOCA_H)
+endif()
+
 if (NOT BUILD_FRAMEWORK)
     add_library(vorbis ${VORBIS_HEADERS} ${VORBIS_SOURCES})
     add_library(vorbisenc ${VORBISENC_SOURCES})
